@@ -15,6 +15,7 @@ class _TelaConsultaState extends State<TelaConsulta> {
 
   @override
   Widget build(BuildContext context) {
+    start();
     return Scaffold(
       appBar: AppBar(
         title: Text("Consultar cliente"),
@@ -50,6 +51,11 @@ class _TelaConsultaState extends State<TelaConsulta> {
     setState(() {
 
     });
+  }
+
+  Future start() async{
+    final prefs = await SharedPreferences.getInstance();
+    _inputPesquisa.text = prefs.getString('suaPesquisa').toString();
   }
 }
 
